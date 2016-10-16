@@ -26,12 +26,14 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
+                @yield('links')
                 <!-- All the other Links shall be entered here dpeneding on the page  -->
                 <li class="">
                     <a class="page-scroll" href="{{url('about')}}">About</a>
-                    {{--I will check for login status and then show login/logout button--}}
                 </li>
                 <li>
+
+                    {{--I will check for login status and then show login/logout button--}}
                     @if(Auth::user())
                         <a href="{{ url('/logout') }}"
                            onclick="event.preventDefault();
@@ -44,7 +46,6 @@
                     @endif
                 </li>
 
-                @yield('links')
             </ul>
         </div>
         <!--Bread Crumb goes here-->

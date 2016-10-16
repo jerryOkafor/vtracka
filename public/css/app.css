@@ -28,3 +28,12 @@ footer{
 .full-width{
     width: 100%;
 }
+
+.match_ends {
+    width: 100%;
+    height: 1px;
+}
+
+.old_user_rule {
+    background: darkgrey;
+}

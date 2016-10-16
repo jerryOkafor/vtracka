@@ -1,7 +1,12 @@
 @extends('layouts.app')
 
+@section('links')
+    <li class="">
+        <a class="page-scroll" href="{{url('dashboard')}}">Dashboard</a>
+        {{--This links the current admin to the dashboard to view visitors with current sessions on--}}
+    </li>
+@endsection
 @section('content')
-
     <section id="admin-index-page">
         <div class="container">
 
@@ -24,19 +29,21 @@
 
                         <div style="padding-top:30px" class="panel-body">
 
-                            <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12">
+                            @if(session()->has('message'))
+                                <div id="login-alert" class="alert alert-danger col-sm-12">
+                                    {{session('message')[0]}}
+                                </div>
+                            @endif
 
-                            </div>
-
-                            <form id="loginform" class="form-horizontal" role="form">
-
+                            <form id="loginform" class="form-horizontal" role="form" method="post"
+                                  action="{{url('visitors/check')}}">
+                                {{csrf_field()}}
                                 <div style="margin-bottom: 25px" class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                    <input id="login-username" type="text" class="form-control" name="username" value=""
+                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                    <input id="login-username" type="text" class="form-control" name="emailPhone"
+                                           value=""
                                            placeholder="Email or Phone No.">
                                 </div>
-
-
                                 <div style="margin-top:10px" class="form-group">
                                     <!-- Button -->
 

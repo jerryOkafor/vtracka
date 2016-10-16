@@ -13,5 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         //Here we have lists of other Seeders that this Database Seeder can call.
          $this->call(UsersTableSeeder::class);
+         $this->call(VisitorsTableSeeder::class);
+         $this->call(HistoryTableSeeder::class);
     }
 }
