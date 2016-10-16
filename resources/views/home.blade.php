@@ -41,8 +41,7 @@
                                 <div style="margin-bottom: 25px" class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
                                     <input id="login-username" type="text" class="form-control" name="emailPhone"
-                                           value=""
-                                           placeholder="Email or Phone No.">
+                                           placeholder="Email or Phone No." required>
                                 </div>
                                 <div style="margin-top:10px" class="form-group">
                                     <!-- Button -->
