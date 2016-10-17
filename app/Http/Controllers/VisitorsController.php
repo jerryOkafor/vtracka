@@ -25,28 +25,33 @@ class VisitorsController extends Controller
     {
         $data = $request->all();
         $phoneEmail = $data['emailPhone'];
-        $visitor = Visitor::where('phone', $phoneEmail)
+        $visitor = Visitor::where('phone',"$phoneEmail")
             ->orWhere('email', $phoneEmail)->first();
 
-        $vId = $visitor->id;
-        if (Visitor::hasSession($vId)) {
-            //the visitor has a session already so simply
-            //take him to the sign out page
-            return redirect('visitor/visit/out/'.$vId);
-        } else {
-            //no session so we can check he has a record
-            //or not and go ahead and sign them in
-            if ($visitor) {
-                //visitor exists in the database
+
+        if ($visitor) {
+            //visitor exists in the database
+            $vId = $visitor->id;
+            if (Visitor::hasSession($vId)) {
+                //the visitor has a session already so simply
+                //take him to the sign out page
+                return redirect('visitor/visit/out/'.$vId);
+            } else {
+                //no session so we can check he has a record
+                //or not and go ahead and sign them in
+
                 return view('oldVisitor')->withVisitor($visitor);
 
-            } else {
-                //the visitor's details is not in the database
-                //he/she is visiting for the first time,
-                //so we show him the sign in page
-                return view('newVisitor');
             }
+
+        } else {
+            //the visitor's details is not in the database
+            //he/she is visiting for the first time,
+            //so we show him the sign in page
+            return view('newVisitor');
+
         }
+
     }
 
     /*
