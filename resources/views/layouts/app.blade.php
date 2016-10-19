@@ -8,6 +8,7 @@
     <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link type="text/css" rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <link type="text/css" rel="stylesheet" href="{{asset('css/app.css')}}">
+    <link type="image/x-icon" rel="shortcut icon" href="{{asset('img/favicon.png')}}">
     <link rel="author" href="humans.txt">
 </head>
 <body>
@@ -35,6 +36,8 @@
 
                     {{--I will check for login status and then show login/logout button--}}
                     @if(Auth::user())
+
+
                         <a href="{{ url('/logout') }}"
                            onclick="event.preventDefault();
                            document.getElementById('logout-form').submit();">

@@ -48,7 +48,7 @@ class VisitorsController extends Controller
             //the visitor's details is not in the database
             //he/she is visiting for the first time,
             //so we show him the sign in page
-            return view('newVisitor');
+            return view('newVisitor')->with('message',['No record found, add the user!']);
 
         }
 
@@ -102,6 +102,37 @@ class VisitorsController extends Controller
      */
     public function signOut()
     {
-        echo "Tomorrow i will sign out the user";
+        
+        echo "Sign out the user and return to the home page";
+
     }
+
+
+    public function signUp(Request $request)
+    {
+
+        $visitorsModel = new Visitor;
+        $avatar='img/img_placeholder_avatar.jpg';
+        if($request->gender == 0){ //0 == female
+            $avatar = 'img/img_placeholder_avatar_female.jpg';
+        }
+        $visitorsModel->first_name = $request->first_name;
+        $visitorsModel->last_name = $request->last_name;
+        $visitorsModel->gender = $request->gender;
+        $visitorsModel->phone = $request->phone;
+        $visitorsModel->email = $request->email;
+        $visitorsModel->avatar_url = $avatar;
+        $visitorsModel->address = $request->address;
+        $visitorsModel->title = $request->title;
+        $visitorsModel->company = $request->company;
+        $visitorsModel->save();
+
+      
+        return redirect('home');
+        //return view('home')->with('message', ['New Visitor Registered']);
+        //return redirect('/home')->with('message', ['New Visitor Registered']);
+        // echo "Sign out the user and return to the home page";
+
+    }
+
 }
