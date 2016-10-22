@@ -4,14 +4,7 @@
     <section id="admin-index-page">
         <div class="container">
 
-            <div class="row">
-                <div class=" col-md-2 col-md-offset-5 col-sm-2 col-sm-offset-2 col-xs-2 col-xs-offset-4">
-                    <div class="wrapper">
 
-                        <h2>Welcome</h2>
-                    </div>
-                </div>
-            </div>
             <div class="clearfix"></div>
             <div class="row">
                 <div id="loginbox" style="margin-top:50px;"
@@ -36,7 +29,16 @@
                                 <input type="hidden" value="{{$visitor->id}}" name="visitor_id">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <img src="{{url($visitor->avatar_url)}}" alt="Avatar" class="img-circle img-responsive">
+
+
+                                        {{-- If the visitor is a male and has no avartar, use avatar 1, else use avatar 2--}}
+                                        {{--{{$visitor->avatar_url == 1 ? "<img src="{{url($visitor->avatar_url)}}" --}}
+                                        {{--alt="Avatar" class="img-circle img-responsive">" : "<img src="{{url($visitor->--}}
+                                        {{--avatar_url)}}" alt="Avatar" class="img-circle img-responsive">")}}" alt="Avatar"--}}
+                                        {{--class="img-circle img-responsive">}}--}}
+
+
+                                         <img src="{{url($visitor->avatar_url)}}" alt="Avatar" class="img-circle img-responsive">
 
                                     </div>
                                     <div class="col-md-8">
@@ -70,6 +72,27 @@
 
                                     </div>
                                 </div>
+
+
+                                 <div class="form-group">
+                                    <label for="floor" class="col-md-4 control-label">Floor</label>
+
+                                    <div id="floor" class="col-md-6" required autofocus>
+                                        <select name="floor" class="form-control">
+                                            <option value="">Select Floor</option>
+                                            <option value="Ground Floor">Ground Floor</option>
+                                            <option value="1st Floor">1st Floor</option>
+                                            <option value="2nd Floor">2nd Floor</option>
+                                            <option value="3rd Floor">3rd Floor</option>
+                                            <option value="4th Floor">4th Floor</option>
+                                            <option value="5th Floor">5th Floor</option>
+                                            <option value="6th Floor">6th Floor</option>
+                                            <option value="Roof Top">Roof Top</option>
+                                            
+                                        </select>
+                                    </div>
+                                </div>
+
 
 
                                 <div class="form-group">

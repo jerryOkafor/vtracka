@@ -4,14 +4,7 @@
     <section id="admin-index-page">
         <div class="container">
 
-            <div class="row">
-                <div class=" col-md-2 col-md-offset-5 col-sm-2 col-sm-offset-2 col-xs-2 col-xs-offset-4">
-                    <div class="wrapper">
 
-                        <h2>Welcome</h2>
-                    </div>
-                </div>
-            </div>
             <div class="clearfix"></div>
             <div class="row">
                 <div id="loginbox" style="margin-top:50px;"
