@@ -17,10 +17,11 @@ Route::get('/', 'HomeController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+Route::get('dashboard','HomeController@adminDashboard');
 
 Route::get('about', 'AboutController@index');
 
-Route::post('visitors/check', 'VisitorsController@check');
+Route::any('visitors/check', 'VisitorsController@check');
 
 Route::post('visitor/visit/new', 'VisitorsController@newVisit');
 

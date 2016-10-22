@@ -10,6 +10,7 @@ class History extends Model
         'visitor_id',
         'p_of_visit',
         'whom_to_see',
+        'floor',
         'date',
         'time_in',
         'time_out',

@@ -12,16 +12,27 @@ class HistoryTableSeeder extends Seeder
     public function run()
     {
         $faker = Faker\Factory::create();
-        for ($i = 0; $i <= 100; $i++) {
+        DB::table('histories')->insert([
+            'visitor_id' => 1,
+            'p_of_visit' => "To enjoy code Camp",
+            'whom_to_see' => "CCHub",
+            'floor' => 6,
+            'date' => $faker->date(),
+            'time_in' => $faker->time(),
+            'time_out' => null,
+            'admin' => $faker->name,
+        ]);
+        for ($i = 0; $i <= 20; $i++) {
             DB::table('histories')->insert([
                 'visitor_id' => $i,
                 'p_of_visit' => $faker->text(),
                 'whom_to_see' => $faker->text(),
+                'floor' => 6,
                 'date' => $faker->date(),
                 'time_in' => $faker->time(),
-                'time_out' => $faker->time(),
+                'time_out' => null,
                 'admin' => $faker->name,
-        ]);
+            ]);
         }
     }
 }

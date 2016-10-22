@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\History;
 use App\Http\Requests;
+use App\User;
 use App\Visitor;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -24,32 +25,37 @@ class VisitorsController extends Controller
     public function check(Request $request)
     {
         $data = $request->all();
-        $phoneEmail = $data['emailPhone'];
-        $visitor = Visitor::where('phone',"$phoneEmail")
-            ->orWhere('email', $phoneEmail)->first();
+        if($data) {
+            $phoneEmail = $data['emailPhone'];
+            $visitor = Visitor::where('phone', "$phoneEmail")
+                ->orWhere('email', $phoneEmail)->first();
 
 
-        if ($visitor) {
-            //visitor exists in the database
-            $vId = $visitor->id;
-            if (Visitor::hasSession($vId)) {
-                //the visitor has a session already so simply
-                //take him to the sign out page
-                return redirect('visitor/visit/out/'.$vId);
+            if ($visitor) {
+                //visitor exists in the database
+                $vId = $visitor->id;
+                if (Visitor::hasSession($vId)) {
+                    //the visitor has a session already so simply
+                    //take him to the sign out page
+                    return redirect('visitor/visit/out/' . $vId);
+                } else {
+                    //no session so we can check he has a record
+                    //or not and go ahead and sign them in
+
+                    return view('oldVisitor')->withVisitor($visitor);
+
+                }
+
             } else {
-                //no session so we can check he has a record
-                //or not and go ahead and sign them in
+                //the visitor's details is not in the database
+                //he/she is visiting for the first time,
+                //so we show him the sign in page
+                return view('newVisitor')->withMessage('No record found, add the user!');
 
-                return view('oldVisitor')->withVisitor($visitor);
 
             }
-
-        } else {
-            //the visitor's details is not in the database
-            //he/she is visiting for the first time,
-            //so we show him the sign in page
-            return view('newVisitor')->with('message',['No record found, add the user!']);
-
+        }else{
+            return view('newVisitor')->withMessage('No record found, add the user!');
         }
 
     }
@@ -74,6 +80,7 @@ class VisitorsController extends Controller
                 'visitor_id' => $data['visitor_id'],
                 'p_of_visit' => $data['p_of_visit'],
                 'whom_to_see' => $data['whom_to_see'],
+                'floor'=>$data['floor'],
                 'date' => Carbon::now(),
                 'time_in' => Carbon::now(),
                 'time_out' => null,
@@ -99,11 +106,17 @@ class VisitorsController extends Controller
 
     /**
      * Handles the sign out of the visitor
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function signOut()
+    public function signOut(Request $request)
     {
-        
-        echo "Sign out the user and return to the home page";
+        $data  = $request->all();
+        $visit = Visitor::currentVisit($data['visitor_id']);
+        $visit->time_out = Carbon::now();
+
+        $visit->save();
+        return redirect()->to('home');
 
     }
 

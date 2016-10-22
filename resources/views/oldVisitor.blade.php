@@ -23,7 +23,7 @@
 
                             </div>
 
-                            <form id="loginform" class="form-horizontal" role="form" method="POST"                                 
+                            <form id="loginform" class="form-horizontal" role="form" method="POST"
                                   action="{{ url('visitor/visit/new') }}">
                                 {{csrf_field()}}
                                 <input type="hidden" value="{{$visitor->id}}" name="visitor_id">
@@ -38,7 +38,8 @@
                                         {{--class="img-circle img-responsive">}}--}}
 
 
-                                         <img src="{{url($visitor->avatar_url)}}" alt="Avatar" class="img-circle img-responsive">
+                                        <img src="{{url($visitor->avatar_url)}}" alt="Avatar"
+                                             class="img-circle img-responsive">
 
                                     </div>
                                     <div class="col-md-8">
@@ -74,25 +75,20 @@
                                 </div>
 
 
-                                 <div class="form-group">
+                                <div class="form-group">
                                     <label for="floor" class="col-md-4 control-label">Floor</label>
 
                                     <div id="floor" class="col-md-6" required autofocus>
                                         <select name="floor" class="form-control">
                                             <option value="">Select Floor</option>
-                                            <option value="Ground Floor">Ground Floor</option>
-                                            <option value="1st Floor">1st Floor</option>
-                                            <option value="2nd Floor">2nd Floor</option>
-                                            <option value="3rd Floor">3rd Floor</option>
-                                            <option value="4th Floor">4th Floor</option>
-                                            <option value="5th Floor">5th Floor</option>
-                                            <option value="6th Floor">6th Floor</option>
-                                            <option value="Roof Top">Roof Top</option>
-                                            
+                                            {{$floors = \App\Floor::all()}}
+                                            @foreach($floors as $floor)
+                                                <option value="{{$floor->id}}">{{$floor->name}}</option>
+                                            @endforeach
+
                                         </select>
                                     </div>
                                 </div>
-
 
 
                                 <div class="form-group">

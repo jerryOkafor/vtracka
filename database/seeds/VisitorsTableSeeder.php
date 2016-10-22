@@ -12,7 +12,18 @@ class VisitorsTableSeeder extends Seeder
     public function run()
     {
         $faker = Faker\Factory::create();
-        for ($i = 0; $i <= 100; $i++) {
+        DB::table('visitors')->insert([
+            'first_name' => 'Jerry',
+            'last_name' => 'Okafor',
+            'gender' => 1,
+            'phone' => '08030520715',
+            'email' => 'jerryhanksokafor@gmail.com',
+            'address' => 'Ajah',
+            'title' => 'Software Engineer',
+            'company' => 'Pacent Ltd',
+            'avatar_url'=> 'img/img_placeholder_avatar.jpg'
+            ]);
+        for ($i = 0; $i <= 20; $i++) {
             DB::table('visitors')->insert([
                 'first_name' => $faker->firstName,
                 'last_name' => $faker->lastName,
