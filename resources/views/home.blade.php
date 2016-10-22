@@ -1,11 +1,6 @@
 @extends('layouts.app')
 
-@section('links')
-    <li class="">
-        <a class="page-scroll" href="{{url('dashboard')}}">Dashboard</a>
-        {{--This links the current admin to the dashboard to view visitors with current sessions on--}}
-    </li>
-@endsection
+
 @section('content')
     <section id="admin-index-page">
         <div class="container">
@@ -49,7 +44,7 @@
 
                                     <div class="col-sm-12 col-md-12 controls" style="text-align: center;">
                                         <input type="submit" style="width: 50%; align-self: center;" value="Proceed"
-                                               id="btn-login" href="#" class="btn btn-success"/>
+                                               id="btn-login" href="#" class="btn btn-primary"/>
 
 
                                     </div>

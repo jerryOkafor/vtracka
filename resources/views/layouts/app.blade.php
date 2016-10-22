@@ -21,22 +21,34 @@
                     data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand page-scroll" href="#page-top">VTracka</a>
+            <a class="navbar-brand page-scroll" href="#page-top" style="font-size:25px; font-weight:600; color:#017cc2; font-family:cambria;">vTracka</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 @yield('links')
-                <!-- All the other Links shall be entered here dpeneding on the page  -->
+                <!-- All the other Links shall be entered here depending on the page  -->
+                 <li class="">
+                    @if(Auth::user())
+                    <a class="page-scroll" href="{{url('dashboard')}}">Dashboard</a>
+                    @endif
+                 </li> 
+
+
                 <li class="">
                     <a class="page-scroll" href="{{url('about')}}">About</a>
                 </li>
+                
+                 
                 <li>
 
                     {{--I will check for login status and then show login/logout button--}}
                     @if(Auth::user())
 
+                    <!-- This links the current admin to the dashboard to add other admins -->
+                            
+                          
 
                         <a href="{{ url('/logout') }}"
                            onclick="event.preventDefault();

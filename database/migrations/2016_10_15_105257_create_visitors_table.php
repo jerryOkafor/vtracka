@@ -23,6 +23,7 @@ class CreateVisitorsTable extends Migration
             $table->string('address');
             $table->string('title');
             $table->string('company');
+            $table->string('floor');
             $table->string('avatar_url')->default('img/img_placeholder_avatar.jpg');
             $table->timestamps();
         });
