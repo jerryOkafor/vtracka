@@ -29,18 +29,8 @@
                                 <input type="hidden" value="{{$visitor->id}}" name="visitor_id">
                                 <div class="row">
                                     <div class="col-md-4">
-
-
-                                        {{-- If the visitor is a male and has no avartar, use avatar 1, else use avatar 2--}}
-                                        {{--{{$visitor->avatar_url == 1 ? "<img src="{{url($visitor->avatar_url)}}" --}}
-                                        {{--alt="Avatar" class="img-circle img-responsive">" : "<img src="{{url($visitor->--}}
-                                        {{--avatar_url)}}" alt="Avatar" class="img-circle img-responsive">")}}" alt="Avatar"--}}
-                                        {{--class="img-circle img-responsive">}}--}}
-
-
                                         <img src="{{url($visitor->avatar_url)}}" alt="Avatar"
                                              class="img-circle img-responsive">
-
                                     </div>
                                     <div class="col-md-8">
                                         <p>Name: {{$visitor->first_name." ".$visitor->last_name}}</p>

@@ -14,21 +14,20 @@
 
                         <div style="padding-top:30px" class="panel-body">
                             @if(isset($message))
-                            <div class="alert alert-warning alert-dismissible" role="alert">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <strong>Warning!</strong>
-                                {{$message}}
-                            </div>
+                                <div class="alert alert-warning alert-dismissible" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                                aria-hidden="true">&times;</span></button>
+                                    <strong>Warning!</strong>
+                                    {{$message}}
+                                </div>
                             @endif
 
 
                             <div class="panel-body">
                                 <form id="registerform" class="form-horizontal" role="form" method="POST"
+                                      enctype="multipart/form-data"
                                       action="{{ url('visitor/visit/signUp') }}">
-
                                     {{csrf_field()}}
-
-
                                     <div class="form-group">
                                         <label for="firstname" class="col-md-4 control-label">First Name</label>
 
@@ -107,6 +106,22 @@
 
                                         <div class="col-md-6">
                                             <input id="comapny" type="text" class="form-control" name="company" required
+                                                   autofocus>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-6 col-md-push-4">
+                                            <img width="120px" height="120px" src="{{url('img/img_placeholder_avatar.jpg')}}" alt="Avatar"
+                                                 class="img-circle img-responsive">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="avatar" class="col-md-4 control-label">Avatar</label>
+
+                                        <div class="col-md-6">
+                                            <input id="avatar" accept="image/jpeg,image/png" type="file"
+                                                   class="form-control" name="avatar" required
                                                    autofocus>
                                         </div>
                                     </div>
