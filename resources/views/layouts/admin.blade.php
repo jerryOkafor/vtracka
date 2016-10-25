@@ -20,6 +20,8 @@
     <!-- Custom Fonts -->
     <link href="{{url('font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
 
+    <link type="image/x-icon" rel="shortcut icon" href="{{asset('img/favicon.png')}}">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -51,7 +53,7 @@
         <ul class="nav navbar-right top-nav">
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                            class="fa fa-user"></i> {{Auth::user()->name}} <b class="caret"></b></a>
+                            class="fa fa-user">Welcome back, </i> {{Auth::user()->name}} <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     {{--<li>--}}
                     {{--<a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>--}}
@@ -64,7 +66,21 @@
                     {{--</li>--}}
                     {{--<li class="divider"></li>--}}
                     <li>
-                        <a href="{{url('logout')}}"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        @if(Auth::user())
+
+                                <!-- This links the current admin to the dashboard to add other admins -->
+
+
+
+                        <a href="{{ url('/logout') }}"
+                           onclick="event.preventDefault();
+                           document.getElementById('logout-form').submit();">
+                            Logout
+                        </a>
+                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                        @endif
                     </li>
                 </ul>
             </li>
@@ -76,11 +92,18 @@
                     <a href="{{url('home')}}"><i class="fa fa-fw fa-home"></i> Home</a>
                 </li>
                 <li>
+                    <a href="{{url('/dashboard')}}"><i class="fa fa-fw fa-map-marker"></i> Today's Visits</a>
+                </li>
+                <li>
                     <a href="{{url('admin/view')}}"><i class="fa fa-fw fa-eye"></i> View Admin</a>
                 </li>
                 <li>
-                    <a href="{{url('register')}}"><i class="fa fa-fw fa-plus-square-o"></i> Add Admin</a>
+                    <a href="{{url('register')}}"><i class="fa fa-fw fa-plus-square-o"></i> Add Users</a>
                 </li>
+                <li>
+                    <a href="{{url('user/view')}}"><i class="fa fa-fw fa-eye"></i> View Users</a>
+                </li>
+
                 <li>
                     <a href="{{url('visitor/history')}}"><i class="fa fa-fw fa-history"></i> Visitor's History</a>
                 </li>

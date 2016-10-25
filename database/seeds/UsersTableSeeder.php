@@ -17,10 +17,13 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'name'      => 'Super Admin',
+            'name'      => 'Admin',
             'email'     => 'admin@vtracka.com',
-            'password'  => bcrypt('admin@pass'),
+            'phone'     => '+234-*** *** ****',
+            'address'   => 'Co-Creation Hub',
             'role'      => 2,
+            'password'  => bcrypt('admin@pass'),
+           
         ]);
     }
 }

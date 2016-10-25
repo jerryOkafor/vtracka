@@ -9,7 +9,7 @@
                      class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
                     <div class="panel panel-info">
                         <div class="panel-heading">
-                            <div class="panel-title">Sign Up</div>
+                            <div class="panel-title">Create Account</div>
                         </div>
 
                         <div style="padding-top:30px" class="panel-body">
@@ -63,7 +63,7 @@
                                         <label for="phone" class="col-md-4 control-label">Phone Number</label>
 
                                         <div class="col-md-6">
-                                            <input id="phone" type="text" class="form-control" name="phone" required
+                                            <input id="phone" type="tel" class="form-control" name="phone" required
                                                    autofocus>
                                         </div>
                                     </div>

@@ -4,8 +4,8 @@
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">
-            vTracka
-            <small>Admin</small>
+            Dashboard
+
         </h1>
     </div>
 </div>
@@ -121,7 +121,7 @@
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Todays Visits:</h3>
+                <h3 class="panel-title"><i class="fa fa-fw fa-map-marker"></i> Todays Visits:</h3>
             </div>
             <div class="panel-body">
                 <div class="table-responsive">
@@ -137,20 +137,23 @@
                             <th>Purpose</th>
                             <th>Floor</th>
                             <th>Time In</th>
+                            <th>Signed in by</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
+                        @foreach($todayvisits as $todayvisit)
                         <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>Oct 4</td>
-                            <td>Okafor Jerry hanks</td>
-                            <td>08030520715</td>
-                            <td>jerry@gmail.com</td>
-                            <td>CCHub</td>
-                            <td>Code Camp</td>
-                            <td>First Floor</td>
-                            <td>11:23</td>
+                            <td>{{$todayvisit->id}}</td>
+                            <td>{{$todayvisit->date}}</td>
+                            <td>{{$todayvisit->first_name}} {{$todayvisit->last_name}}</td>
+                            <td>{{$todayvisit->phone}}</td>
+                            <td>{{$todayvisit->email}}</td>
+                            <td>{{$todayvisit->whom_to_see}}</td>
+                            <td>{{$todayvisit->p_Of_visit}}</td>
+                            <td>{{$todayvisit->floor}}</td>
+                            <td>{{$todayvisit->time_in}}</td>
+                            <td>{{Auth::user()->name}}</td>
                             <td>
                                 <div class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
@@ -168,6 +171,7 @@
                         </tr>
 
                         </tbody>
+                            @endforeach
                     </table>
                 </div>
             </div>

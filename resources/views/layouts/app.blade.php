@@ -30,10 +30,11 @@
                 @yield('links')
                 <!-- All the other Links shall be entered here depending on the page  -->
                  <li class="">
-                    @if(Auth::user())
+
+                     @if(Auth::user() && Auth::user()->role == 2)
                     <a class="page-scroll" href="{{url('dashboard')}}">Dashboard</a>
                     @endif
-                 </li> 
+                 </li>
 
 
                 <li class="">

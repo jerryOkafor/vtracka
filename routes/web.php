@@ -18,7 +18,18 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('dashboard','AdminController@index');
+//Route::get('/register','RegisterController@index');
+
+//Route::get('dashboard','AdminController@index');
+Route::post('submitFloor','AdminController@submitFloor');
+
+Route::get('dashboard','AdminController@todayVisits');
+
+Route::get('user/view','AdminController@userProfile');
+
+Route::get('admin/view','AdminController@adminProfile');
+
+Route::get('floor/add','AdminController@addFloor');
 
 Route::get('about', 'AboutController@index');
 
