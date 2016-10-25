@@ -17,6 +17,11 @@ class Visitor extends Model
         'title',
         'company'
     ];
+    
+   
+//    public function history(){
+//        return $this->hasMany('App\History');
+//    }
 
 
     public static function hasSession($id)

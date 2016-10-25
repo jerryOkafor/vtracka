@@ -15,6 +15,10 @@ class History extends Model
         'time_in',
         'time_out',
         'admin'
-
     ];
+
+    //the visitor table is been called within the history model
+    public function visitor(){
+        return $this->belongsTo('App\Visitor');
+    }
 }

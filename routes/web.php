@@ -31,6 +31,8 @@ Route::get('admin/view','AdminController@adminProfile');
 
 Route::get('floor/add','AdminController@addFloor');
 
+Route::get('visitor/history','AdminController@visitorHistory');
+
 Route::get('about', 'AboutController@index');
 
 Route::any('visitors/check', 'VisitorsController@check');

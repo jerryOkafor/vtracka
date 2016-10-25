@@ -125,10 +125,10 @@ class VisitorsController extends Controller
     {
 
         $visitorsModel = new Visitor;
-        $avatar='img/img_placeholder_avatar.jpg';
-        if($request->gender == 0){ //0 == female
-            $avatar = 'img/img_placeholder_avatar_female.jpg';
-        }
+//        $avatar='img/img_placeholder_avatar.jpg';
+//        if($request->gender == 0){ //0 == female
+//            $avatar = 'img/img_placeholder_avatar_female.jpg';
+//        }
         $visitorsModel->first_name = $request->first_name;
         $visitorsModel->last_name = $request->last_name;
         $visitorsModel->gender = $request->gender;

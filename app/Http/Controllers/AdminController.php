@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -9,6 +10,8 @@ use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 
 use App\User;
+
+use App\Visitor as Visitor;
 
 use App\History;
 
@@ -46,9 +49,19 @@ class AdminController extends Controller
     
     public function todayVisits(){
 
-        $todayvisits = History::all();
+            $todayvisits = History::where('date', Carbon::today())->get();
 
-        return (Auth::user()->role == 2)? view('adminDashboard', compact('todayvisits')) : view('home');
+            return (Auth::user()->role == 2) ? view('adminDashboard', compact('todayvisits')) : view('home');
+    }
+
+
+    public function visitorHistory(){
+       
+        $visitHistories = History::all();
+        return view('visitorHistory', compact('visitHistories'));
+
+
+        //return (Auth::user()->role == 2)? view('visitorHistory', compact('visithistories')) : view('home');
     }
 
 

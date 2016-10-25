@@ -146,11 +146,11 @@
                         <tr>
                             <td>{{$todayvisit->id}}</td>
                             <td>{{$todayvisit->date}}</td>
-                            <td>{{$todayvisit->first_name}} {{$todayvisit->last_name}}</td>
-                            <td>{{$todayvisit->phone}}</td>
-                            <td>{{$todayvisit->email}}</td>
+                            <td>{{$todayvisit->visitor->first_name}} {{$todayvisit->visitor->last_name}}</td>
+                            <td>{{$todayvisit->visitor->phone}}</td>
+                            <td>{{$todayvisit->visitor->email}}</td>
                             <td>{{$todayvisit->whom_to_see}}</td>
-                            <td>{{$todayvisit->p_Of_visit}}</td>
+                            <td>{{$todayvisit->p_of_visit}}</td>
                             <td>{{$todayvisit->floor}}</td>
                             <td>{{$todayvisit->time_in}}</td>
                             <td>{{Auth::user()->name}}</td>
