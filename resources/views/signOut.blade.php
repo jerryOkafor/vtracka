@@ -38,7 +38,7 @@
                                         <p>Phone: {{$visitor->phone}}</p>
                                         <p>Email: {{$visitor->email}}</p>
                                         <p>Address: {{$visitor->address}}</p>
-                                        <p>Title: {{$visitor->title}}</p>
+                                        <p>Profession: {{$visitor->profession}}</p>
                                         <p>Company: {{$visitor->company}}</p>
                                     </div>
                                 </div>
@@ -83,5 +83,6 @@
                 </div>
             </div>
         </div>
+
     </section>
 @endsection

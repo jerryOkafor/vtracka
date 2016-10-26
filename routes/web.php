@@ -21,15 +21,15 @@ Route::get('/home', 'HomeController@index');
 //Route::get('/register','RegisterController@index');
 
 //Route::get('dashboard','AdminController@index');
-Route::post('submitFloor','AdminController@submitFloor');
+Route::post('submit/floor','AdminController@submitFloor');
+
+Route::get('floor/add','AdminController@addFloor');
 
 Route::get('dashboard','AdminController@todayVisits');
 
 Route::get('user/view','AdminController@userProfile');
 
 Route::get('admin/view','AdminController@adminProfile');
-
-Route::get('floor/add','AdminController@addFloor');
 
 Route::get('visitor/history','AdminController@visitorHistory');
 
@@ -44,4 +44,5 @@ Route::get('visitor/visit/out/{id}', 'VisitorsController@signOutView');
 Route::post('visitor/visit/out', 'VisitorsController@signOut');
 
 Route::post('visitor/visit/signUp', 'VisitorsController@signUp');
+
 

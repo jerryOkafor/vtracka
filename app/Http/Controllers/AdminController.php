@@ -20,6 +20,11 @@ use App\Floor;
 class AdminController extends Controller
 {
 
+    public function __construct(){
+       //return (Auth::user()->role == 2)? view('adminDashboard') : view('home');
+        // return (Auth::user()->role !== 2)? back() : '' ;
+    }
+
     public function index()
     {
         return (Auth::user()->role == 2)? view('adminDashboard') : view('home');
@@ -33,7 +38,8 @@ class AdminController extends Controller
                
         $admins = User::all()->where('role','2');   
 
-        return (Auth::user()->role == 2)? view('viewAdmin', compact('admins')) : view('home');
+       return (Auth::user()->role == 2)? view('viewAdmin', compact('admins')) : view('home');
+      // return view('viewAdmin', compact('admins'));
     }
 
     
@@ -58,16 +64,16 @@ class AdminController extends Controller
     public function visitorHistory(){
        
         $visitHistories = History::all();
-        return view('visitorHistory', compact('visitHistories'));
+        //return view('visitorHistory', compact('visitHistories'));
 
-
-        //return (Auth::user()->role == 2)? view('visitorHistory', compact('visithistories')) : view('home');
+        return (Auth::user()->role == 2)? view('visitorHistory', compact('visitHistories')) : view('home');
     }
 
 
     public function addFloor(){
+        $addedFloors = Floor::all();
+       return view('floor', compact($addedFloors, 'addedFloors'));
 
-         return (Auth::user()->role == 2)? view('floor', compact('floors')) : view('home');
     }
 
 
@@ -77,6 +83,8 @@ class AdminController extends Controller
         $floors->name = $request->name;
         $floors->tag = $request->tag;
         $floors->save();
+
+        return redirect('floor/add');
     }
 
 

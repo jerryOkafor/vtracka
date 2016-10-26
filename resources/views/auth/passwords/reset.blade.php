@@ -8,7 +8,7 @@
                 <div class=" col-md-2 col-md-offset-5 col-sm-2 col-sm-offset-2 col-xs-2 col-xs-offset-4">
                     <div class="wrapper">
 
-                        <h2>Reset Your Password</h2>
+                        {{--<h2>Reset Your Password</h2>--}}
                     </div>
                 </div>
             </div>

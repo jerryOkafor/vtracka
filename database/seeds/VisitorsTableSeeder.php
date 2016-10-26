@@ -19,8 +19,9 @@ class VisitorsTableSeeder extends Seeder
             'phone' => '08030520715',
             'email' => 'jerryhanksokafor@gmail.com',
             'address' => 'Ajah',
-            'title' => 'Software Engineer',
+            'profession' => 'Software Engineer',            
             'company' => 'Pacent Ltd',
+            
             'avatar_url'=> 'img/img_placeholder_avatar.jpg'
             ]);
         for ($i = 0; $i <= 20; $i++) {
@@ -31,7 +32,7 @@ class VisitorsTableSeeder extends Seeder
                 'phone' => $faker->phoneNumber,
                 'email' => $faker->email,
                 'address' => $faker->address,
-                'title' => $faker->title,
+                'profession' => $faker->title,
                 'company' => $faker->company,
                 'avatar_url'=> 'img/img_placeholder_avatar.jpg'
         ]);

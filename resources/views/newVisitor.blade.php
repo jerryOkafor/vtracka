@@ -93,10 +93,10 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="title" class="col-md-4 control-label">Profession</label>
+                                        <label for="profession" class="col-md-4 control-label">Profession</label>
 
                                         <div class="col-md-6">
-                                            <input id="title" type="text" class="form-control" name="title" required
+                                            <input id="profession" type="text" class="form-control" name="profession" required
                                                    autofocus>
                                         </div>
                                     </div>
@@ -105,7 +105,7 @@
                                         <label for="company" class="col-md-4 control-label">Company</label>
 
                                         <div class="col-md-6">
-                                            <input id="comapny" type="text" class="form-control" name="company" required
+                                            <input id="company" type="text" class="form-control" name="company" required
                                                    autofocus>
                                         </div>
                                     </div>
@@ -146,5 +146,6 @@
 
             </div>
         </div>
+
     </section>
 @endsection

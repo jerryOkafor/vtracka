@@ -18,7 +18,7 @@ class CreateHistoriesTable extends Migration
             $table->integer('visitor_id')->unsigned();
             $table->string('p_of_visit');
             $table->string('whom_to_see');
-            $table->integer('floor');
+            $table->string('floor');
             $table->date('date');
             $table->time('time_in');
             $table->time('time_out')->nullable();

@@ -31,8 +31,7 @@
                                 <tr>
                                     <th>S/N</th>
                                     <th>Date</th>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
+                                    <th>Name</th>
                                     <th>Email</th>
                                     <th>Gender</th>
                                     <th>Phone</th>
@@ -43,6 +42,7 @@
                                     <th>Signed in by</th>
                                     <th>Time In</th>
                                     <th>Time Out</th>
+                                    <th>Reg. Date/Time</th>
 
                                 </tr>
                                 </thead>
@@ -52,18 +52,18 @@
                                     <tr>
                                         <td>{{ $visitHistory->id }}</td>
                                         <td>{{ $visitHistory->date }}</td>
-                                        <td>{{ $visitHistory->visitor->first_name }}</td>
-                                        <td>{{ $visitHistory->visitor->last_name }}</td>
+                                        <td>{{ $visitHistory->visitor->first_name }} {{ $visitHistory->visitor->last_name }}</td>
                                         <td>{{ $visitHistory->visitor->email }}</td>
-                                        <td>{{ $visitHistory->visitor->gender }}</td>
+                                        <td> {{ (($visitHistory->visitor->gender)==1)? 'Male' : 'Female'}}</td>
                                         <td>{{ $visitHistory->visitor->phone }}</td>
                                         <td>{{ $visitHistory->visitor->address }}</td>
                                         <td>{{ $visitHistory->p_of_visit }}</td>
                                         <td>{{ $visitHistory->whom_to_see }}</td>
-                                        <td>{{ $visitHistory->floor }}</td>
+                                        <td>{{ $visitHistory->floor}}</td>
                                         <td>{{ Auth::User()->name }}</td>
                                         <td>{{ $visitHistory->time_in }}</td>
                                         <td>{{ $visitHistory->time_out }}</td>
+                                        <td>{{ $visitHistory->visitor->created_at }}</td>
                                     <tr>
                                     </tbody>
                                 @endforeach

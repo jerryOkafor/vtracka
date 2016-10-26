@@ -134,9 +134,9 @@ class VisitorsController extends Controller
         $visitorsModel->gender = $request->gender;
         $visitorsModel->phone = $request->phone;
         $visitorsModel->email = $request->email;
-        $visitorsModel->avatar_url = $avatar;
+        $visitorsModel->avatar_url = $request->file('avatar')->store('public/avatars');
         $visitorsModel->address = $request->address;
-        $visitorsModel->title = $request->title;
+        $visitorsModel->profession = $request->profession;
         $visitorsModel->company = $request->company;
         $visitorsModel->save();
 

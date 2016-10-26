@@ -163,7 +163,7 @@
                                             <a href="#"><i class="fa fa-fw fa-sign-out"></i> Sign Out</a>
                                         </li>
                                         <li>
-                                            <a href="#"><i class="fa fa-fw fa-eye"></i> View Details</a>
+                                            <a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-fw fa-eye"></i> View Details</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -179,5 +179,50 @@
     </div>
 </div>
 <!-- /.row -->
+
+
+
+
+
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog" style="margin-top: 150px;">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Visitor</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="{{url('img/img_placeholder_avatar.jpg')}}" alt="Avatar"
+                             class="img-circle img-responsive"><hr>
+                    </div>
+
+
+                    <div class="col-md-8">
+
+                        <h4>welcome</h4>
+                    </div>
+                </div>
+
+                <p>Some text in the modal.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
 
 @endsection

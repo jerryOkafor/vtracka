@@ -14,8 +14,9 @@ class Visitor extends Model
         'phone',
         'email',
         'address',
-        'title',
-        'company'
+        'profession',
+        'company',
+        
     ];
     
    

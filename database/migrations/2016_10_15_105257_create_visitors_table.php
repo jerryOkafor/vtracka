@@ -21,7 +21,7 @@ class CreateVisitorsTable extends Migration
             $table->string('phone');
             $table->string('email');
             $table->string('address');
-            $table->string('title');
+            $table->string('profession');
             $table->string('company');
             $table->string('avatar_url')->default('img/img_placeholder_avatar.jpg');
             $table->timestamps();

@@ -38,7 +38,7 @@
                                         <p>Phone: {{$visitor->phone}}</p>
                                         <p>Email: {{$visitor->email}}</p>
                                         <p>Address: {{$visitor->address}}</p>
-                                        <p>Title: {{$visitor->title}}</p>
+                                        <p>Profession: {{$visitor->profession}}</p>
                                         <p>Company: {{$visitor->company}}</p>
                                     </div>
                                 </div>
@@ -73,7 +73,7 @@
                                             <option value="">Select Floor</option>
                                             {{$floors = \App\Floor::all()}}
                                             @foreach($floors as $floor)
-                                                <option value="{{$floor->id}}">{{$floor->name}}</option>
+                                                <option value="{{$floor->name}}">{{$floor->name}}</option>
                                             @endforeach
 
                                         </select>
